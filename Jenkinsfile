@@ -79,7 +79,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sshagent (credentials: ['sshkey']) {
-          sh 'scp -o StrictHostKeyChecking=no docker-compose.yml ubuntu@35.241.155.247'
+          sh 'scp -o StrictHostKeyChecking=no docker-compose.yml ubuntu@35.241.155.247/home/ubuntu/codechan'
 
           /* sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 docker-comp pull nibug18/codechan:latest'
           sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 docker restart nibug18/codechan:latest' */
