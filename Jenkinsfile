@@ -80,9 +80,9 @@ pipeline {
       steps {
         sshagent (credentials: ['sshkey']) {
           sh 'scp -o StrictHostKeyChecking=no docker-compose.yml ubuntu@35.241.155.247:/home/ubuntu/codechan'
-          sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 docker-compose down'
-          sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 docker-compose pull'
-          sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 docker-compose up -d'
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 "cd codechan; docker-compose down"'
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 "cd codechan; docker-compose pull"'
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 "cd codechan;docker-compose up -d"'
         }
       }
     }
