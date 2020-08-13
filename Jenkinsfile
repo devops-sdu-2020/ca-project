@@ -79,9 +79,8 @@ pipeline {
     stage('Deploy') {
       steps {
         sshagent (credentials: ['ubuntu']) {
-          sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 docker stop nibug18/codechan:latest'
           sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 docker fetch nibug18/codechan:latest'
-          sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 docker run nibug18/codechan:latest'
+          sh 'ssh -o StrictHostKeyChecking=no ubuntu@35.241.155.247 docker restart nibug18/codechan:latest'
         }
       }
     }
